@@ -34,37 +34,5 @@ Leetcode :
 841. Keys and Rooms : Do BFS on input. Maintin a set of (enqued + visited) rooms. Do not enque a room if it's there in the set.
 977. Squares of a Sorted Array : Find the point where -ve +ve transition takes place. From that point, use two pointers i,j. if abs(i)<abs(j); res.append(i**2); i-=1
 -------------------------------------------------------REVISION 1---------------------------------------------------------------------------------
-
-
-
-DP :
-Very Useful : https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns
-
-EASY:
-121. Best time to buy and sell stock
-198. House Robber
-256. Paint House
-
-MEDIUM:
-63. Unique Paths II
-64. Minimum Path Sum
-221. Maximal Square
-300. Longest Increasing Subsequence
-322. Coin Change
-464. Can I Win
-516. Longest Palindromic Subsequence
-698. Partition to K Equal Sum Subsets
-787. Cheapest Flights Within K Stops
-1049. Last Stone Weight II
-1105. Filling Bookcase Shelves
-1143. Longest Common Subsequence
-1155. Dice Roll Sum
-
-HARD:
-32. Longest Valid Parantheses
-44. Wildcard Matching
-72. Edit Distance
-123. Best Time to Buy and Sell Stock III
-1000. Minimum Cost to Merge Stones
-
-
+11. Container With Most Water : Two pointers, start and end. If start is smaller, start++, else end--. Calculate capacity at each step, return max.
+16. 3Sum Closest : Sort the array. Start one pointer at beginning, do two sum approach on the remaining array using two more pointers. Return minumim distance result
