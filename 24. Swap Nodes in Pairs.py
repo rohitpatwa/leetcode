@@ -1,4 +1,4 @@
-# Take next two nodes, swap them and chage pointers, jump two steps from current.
+# Take curr.next and curr.next.next nodes, swap them and chage pointers, jump two steps from current.
 
 
 # Definition for singly-linked list.
