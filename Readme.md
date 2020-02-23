@@ -44,3 +44,7 @@ Leetcode :
 25. Reverse Nodes in k-Group : Keep reversing k chunks of linked list. Maintin the tail of previos chunk to point to the next reversed chunk's head.
 513. Find Bottom Left Tree Value : 2 ways to solve. Either do BFS/DFS traversal by going root, right, left. Or do recursive call and find deepest elem of left tree and right tree.
 86. Partition List : Initiate two lists for before and after, initiate them with ListNode(0). Keep adding nodes to these lists. In the end, before.next = after_head.next; return before_head.next
+1143. Longest Common Subsequence : Create a 2D table of dim (m+1, n+1). If x[i]==y[j] => LCS(i, j)=LCS(i-1, j-1) + 1; Else LCS(i, j) = max(LCS(i-1, j), LCS(i, j-1)); return LCS[-1][-1]
+53. Maximum Subarray : Create dp table of len(arr)+1. Initialize it to -inf. dp[i+1] = max(dp[i] + arr[i], arr[i]); return max(dp)
+965. Univalued Binary Tree : Recursively check if left subtree and right subtee are univals
+979. Distribute Coins in Binary Tree : Take abs value of current node and add ot to an on going sum and sibtract 1 from that sum at the very end	
