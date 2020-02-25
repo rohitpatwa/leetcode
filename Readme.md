@@ -48,3 +48,6 @@ Leetcode :
 53. Maximum Subarray : Create dp table of len(arr)+1. Initialize it to -inf. dp[i+1] = max(dp[i] + arr[i], arr[i]); return max(dp)
 965. Univalued Binary Tree : Recursively check if left subtree and right subtee are univals
 979. Distribute Coins in Binary Tree : Take abs value of current node and add ot to an on going sum and sibtract 1 from that sum at the very end	
+746. Min Cost Climbing Stairs : For each step, cost[i] += min(cost[i-1], cost[i-2]); return cost[-1]
+392. Is Subsequence : Use two pointers i,j. Increment both if same char else j+=1. If i reaches the end, return True.
+303. Range Sum Query - Immutable : Pre-calculate all the prefix sums. Return the difference of prefix sums nums[j] - nums[i-1]
