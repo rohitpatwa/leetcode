@@ -1,4 +1,4 @@
-# Do BFS on input. Maintin a set of (enqued + visited) rooms. Do not enque a room if it's there in the set.
+# Do DFS on input. Maintin a set of keys_collected. Do not push a room if it's there in the keys_collected set.
 
 class Solution(object):
     def canVisitAllRooms(self, rooms):
@@ -7,19 +7,18 @@ class Solution(object):
         :rtype: bool
         """
         
-        q = [rooms[0]]
-        enqued = set([0])
+        S = [rooms[0]]
+        keys_collected = set([0])
         
-        while q:
-            node = q[-1]
-            q = q[:-1]
+        while S:
+            node = S.pop()
             
             for k in node:
-                if k not in enqued:
-                    q.append(rooms[k])
-                    enqued.add(k)
+                if k not in keys_collected:
+                    S.append(rooms[k])
+                    keys_collected.add(k)
         
-        if len(enqued) == len(rooms):
+        if len(keys_collected) == len(rooms):
             return True
         return False
     

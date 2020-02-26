@@ -1,4 +1,4 @@
-# Inorder traversal. Constant space.
+# Inorder traversal. Constant space. Inorder gives sorted values in BST.
 
 
 # Definition for a binary tree node.

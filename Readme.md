@@ -7,7 +7,7 @@ Leetcode :
 167. Two Sum II - Input array is sorted : Use two pointer approach. Initiate one at beginning and one at the end.
 234. Palindrome Linked List : Use fast & slow pointers. Take fast pointer to end, slow pointer will be in the middle. Reverse ll ahead of slow pointer and initiate fast pointer to head. Compare.
 590. N-ary Tree Postorder Traversal : Implement a stack. Keep inserting children in stack and root.val in output arr. return arr[::-1]
-783. Minimum Distance Between BST Nodes : Inorder traversal. Constant space.
+783. Minimum Distance Between BST Nodes : Inorder traversal. Constant space. Inorder gives sorted values in BST.
 442. Find All Duplicates in an Array : Go the index and set the number -ve of itself. Whenever you see an already -ve number, it is repeated.
 94. Binary Tree Inorder Traversal : Nested while loops. Use a stack and curr node. Push all left nodes in stack iteratively. When curr is null, start popping and push right in stack.
 589. N-ary Tree Preorder Traversal : Use stack. Keep adding current values to result list and reverse of children to stack
@@ -31,8 +31,9 @@ Leetcode :
 125. Valid Palindrome : Use two pointers, one at beginning, one at end. Run 2 while loops inside a one while loop to skip all non alphanumeric charectes
 876. Middle of the Linked List : Use slow pointer, fast pointer approach
 657. Robot Return to Origin : Maintin the distance from origin on x axis and y axis.
-841. Keys and Rooms : Do BFS on input. Maintin a set of (enqued + visited) rooms. Do not enque a room if it's there in the set.
+841. Keys and Rooms : Do BFS on input. Maintin a set of (enqued + visited) rooms. Do not enque a room if it's there in the visited set.
 977. Squares of a Sorted Array : Find the point where -ve +ve transition takes place. From that point, use two pointers i,j. if abs(i)<abs(j); res.append(i**2); i-=1
+-------------------------------------------------------REVISION 2---------------------------------------------------------------------------------
 -------------------------------------------------------REVISION 1---------------------------------------------------------------------------------
 11. Container With Most Water : Two pointers, start and end. If start is smaller, start++, else end--. Calculate capacity at each step, return max.
 16. 3Sum Closest : Sort the array. Start one pointer at beginning, do two sum approach on the remaining array using two more pointers. Return minumim distance result

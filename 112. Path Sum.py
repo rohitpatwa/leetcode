@@ -1,4 +1,4 @@
-# Create two stacks, one for nodes and one for target_sum. Keep popping from the stack and adding the left and right children in the stack.
+# Simple recursive solution by DFS. call dfs with current sum. It will keep calling itself with left and right nodes.
 
 # Definition for a binary tree node.
 # class TreeNode(object):
