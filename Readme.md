@@ -34,14 +34,14 @@ Leetcode :
 841. Keys and Rooms : Do BFS on input. Maintin a set of (enqued + visited) rooms. Do not enque a room if it's there in the visited set.
 977. Squares of a Sorted Array : Find the point where -ve +ve transition takes place. From that point, use two pointers i,j. if abs(i)<abs(j); res.append(i**2); i-=1
 -------------------------------------------------------REVISION 2---------------------------------------------------------------------------------
--------------------------------------------------------REVISION 1---------------------------------------------------------------------------------
 11. Container With Most Water : Two pointers, start and end. If start is smaller, start++, else end--. Calculate capacity at each step, return max.
 16. 3Sum Closest : Sort the array. Start one pointer at beginning, do two sum approach on the remaining array using two more pointers. Return minumim distance result
 515. Find Largest Value in Each Tree Row : Maintain two lists, one Q and C(for it's children). When Q is empty, take the max of children and make Q=C and C=[].
 287. Find the Duplicate Number : Same as finding start point of cycle in a linkedlist. Use fp, sp. They will intersect at one point. Start another pointer at beginning and let it intersect sp.
-814. Binary Tree Pruning : 
 846. Hand of Straights : Create a counter of cards. Sort the keys. For each card, next W cards should have a count greater than it's count. Subtract curr count from next W cards.
 24. Swap Nodes in Pairs : Take curr.next and curr.next.next nodes, swap them and chage pointers, jump two steps from current.
+-------------------------------------------------------REVISION 1---------------------------------------------------------------------------------
+814. Binary Tree Pruning : 
 25. Reverse Nodes in k-Group : Keep reversing k chunks of linked list. Maintin the tail of previos chunk to point to the next reversed chunk's head.
 513. Find Bottom Left Tree Value : 2 ways to solve. Either do BFS/DFS traversal by going root, right, left. Or do recursive call and find deepest elem of left tree and right tree.
 86. Partition List : Initiate two lists for before and after, initiate them with ListNode(0). Keep adding nodes to these lists. In the end, before.next = after_head.next; return before_head.next
@@ -52,3 +52,14 @@ Leetcode :
 746. Min Cost Climbing Stairs : For each step, cost[i] += min(cost[i-1], cost[i-2]); return cost[-1]
 392. Is Subsequence : Use two pointers i,j. Increment both if same char else j+=1. If i reaches the end, return True.
 303. Range Sum Query - Immutable : Pre-calculate all the prefix sums. Return the difference of prefix sums nums[j] - nums[i-1]
+897. Increasing Order Search Tree : Do in-order traversal and store elements. Make a tree from the stored elements.
+733. Flood Fill : Recursively perform DFS. Store startColor, update the pixel and compare it's neighbors with the start color.
+938. Range Sum of BST : check if root lies in the range, if True : recursively call left and right; add node.val, else : call left or right 
+958. Check Completeness of a Binary Tree : Do BFS. When you reach a null node, check if the Q is empty. If yes: return True else return False
+662. Maximum Width of Binary Tree : Do BFS. Store info of (node, pos_from_left, depth). Whenever depth changes, store it as leftmost pos. Find max pos_from_left - pos.
+994. Rotting Oranges : Store all the rotten oranges in a Q. Perform BFS from multiple roots in the Q. Keep adding new rotten cells in Q. Check for fresh cell in the end.
+114. Flatten Binary Tree to Linked List : Recursively call func on left_sub and right_sub. Attach flattened left_sub on right side, traverse it and then attach the flattened right_sub.
+443. String Compression : Iterate over the enitre array. Insert counts only if != 1. Pop repeated occurances of characters.
+48. Rotate Image : Repear n/2 iterations. Replace 4 points in one go.
+1252. Cells with Odd Values in a Matrix : Create two lists of zeros; rows and cols. Keep incrementing count in the lists. Increment total_odd by r+c%2==1
+73. Set Matrix Zeroes : Check if 0th row and col contains 0. Iterate over indices and store zeros in (i,0) and (0,j). Propagate zeros from row0 and col0; start iteration from index 1. 
