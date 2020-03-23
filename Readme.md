@@ -44,7 +44,7 @@ Leetcode :
 814. Binary Tree Pruning : 
 25. Reverse Nodes in k-Group : Keep reversing k chunks of linked list. Maintin the tail of previos chunk to point to the next reversed chunk's head.
 513. Find Bottom Left Tree Value : 2 ways to solve. Either do BFS/DFS traversal by going root, right, left. Or do recursive call and find deepest elem of left tree and right tree.
-86. Partition List : Initiate two lists for before and after, initiate them with ListNode(0). Keep adding nodes to these lists. In the end, before.next = after_head.next; return before_head.next
+86. Partition List : Initiate two lists for before and after, initiate them with ListNode(-1). Keep adding nodes to these lists. In the end, before.next = after_head.next; return before_head.next
 1143. Longest Common Subsequence : Create a 2D table of dim (m+1, n+1). If x[i]==y[j] => LCS(i, j)=LCS(i-1, j-1) + 1; Else LCS(i, j) = max(LCS(i-1, j), LCS(i, j-1)); return LCS[-1][-1]
 53. Maximum Subarray : Create dp table of len(arr)+1. Initialize it to -inf. dp[i+1] = max(dp[i] + arr[i], arr[i]); return max(dp)
 965. Univalued Binary Tree : Recursively check if left subtree and right subtee are univals
@@ -62,4 +62,11 @@ Leetcode :
 443. String Compression : Iterate over the enitre array. Insert counts only if != 1. Pop repeated occurances of characters.
 48. Rotate Image : Repear n/2 iterations. Replace 4 points in one go.
 1252. Cells with Odd Values in a Matrix : Create two lists of zeros; rows and cols. Keep incrementing count in the lists. Increment total_odd by r+c%2==1
-73. Set Matrix Zeroes : Check if 0th row and col contains 0. Iterate over indices and store zeros in (i,0) and (0,j). Propagate zeros from row0 and col0; start iteration from index 1. 
+73. Set Matrix Zeroes : Check if 0th row and col contains 0. Iterate over indices and store zeros in (i,0) and (0,j). Propagate zeros from row0 and col0; start iteration from index 1.
+796. Rotate String : s1 and s2 can be represented as xy and yx. Both x and y are contained in xyxy. | return bool(B in A+A and len(A)==len(B))
+83. Remove Duplicates from Sorted List : recurse on the linked list while ptr.next. store curr val. if next.val==curr, remove next; else val = next.val
+19. Remove Nth Node From End of List : Place two pointers n nodes apart in the linked list. As ptr1 reaches the end, ptr2 will be on the nth node from end.
+237. Delete Node in a Linked List : Update the node value to its next element's value. node.next = node.next.next 
+203. Remove Linked List Elements : Initiate temp = ListNode(-1). temp.next = head; iterate over the list and keep removing matching elements as you go. 
+2. Add Two Numbers : Iterate over 2 LL. Maintain carry digit. Keep adding new nodes to res. In the end, check if carry is set.
+445. Add Two Numbers II : Find len of two linked lists. Pad shorter one with 0s. Call them recursively. When end is reached, keep adding the elements and maintain the carry bit.

@@ -1,4 +1,4 @@
-# Initiate two lists for before and after, initiate them with ListNode(0). Keep adding nodes to these lists. In the end, before.next = after_head.next; return before_head.next
+# Initiate two lists for before and after, initiate them with ListNode(-1). Keep adding nodes to these lists. In the end, before.next = after_head.next; return before_head.next
 
 # Definition for singly-linked list.
 # class ListNode(object):
@@ -13,25 +13,21 @@ class Solution(object):
         :type x: int
         :rtype: ListNode
         """
+        before = ListNode(-1)
+        after = ListNode(-1)
+        before_head = before
+        after_head = after
         
-        small = ListNode(0)
-        small_ptr = small
-        
-        prev = ListNode(0)
-        prev_ptr = prev 
         
         while head:
-            if head.val < x:
-                small_ptr.next = head
-                small_ptr = small_ptr.next
-                prev_ptr.next = head.next
+            if head.val<x:
+                before.next = head
+                before = before.next
             else:
-                prev_ptr.next = head
-                prev_ptr = head
+                after.next = head
+                after = after.next
             head = head.next
-
-        small_ptr.next = prev.next
-        return small.next
-
-
+        after.next = None
+        before.next = after_head.next
+        return before_head.next
                 
