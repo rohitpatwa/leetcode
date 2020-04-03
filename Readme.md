@@ -70,3 +70,6 @@ Leetcode :
 203. Remove Linked List Elements : Initiate temp = ListNode(-1). temp.next = head; iterate over the list and keep removing matching elements as you go. 
 2. Add Two Numbers : Iterate over 2 LL. Maintain carry digit. Keep adding new nodes to res. In the end, check if carry is set.
 445. Add Two Numbers II : Find len of two linked lists. Pad shorter one with 0s. Call them recursively. When end is reached, keep adding the elements and maintain the carry bit.
+160. Intersection of Two Linked Lists : Find the lengths of the two ll. Move the head of larger ll by l1-l2 steps. Then move both heads and compare at step.
+155. Min Stack : Use additional stack to store the min-so-far elements. When popping, check if the popped element is the min so far. If yes, pop.
+202. Happy number : Use fast pointer slow pointer approach to detect a cycle. If cycle found, return False, if 1 reached, return True.

@@ -1,4 +1,4 @@
-# basic functionality of a stack
+# Use additional stack to store the min-so-far elements. When popping, check if the popped element is the min so far. If yes, pop.
 
 class MinStack(object):
 
@@ -24,8 +24,8 @@ class MinStack(object):
         :rtype: None
         """
         if self.s[-1] == self.min_s[-1]:
-            self.min_s = self.min_s[:-1]
-        self.s = self.s[:-1]
+            self.min_s.pop()
+        self.s.pop()
         
 
     def top(self):
