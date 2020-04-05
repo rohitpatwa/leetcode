@@ -73,3 +73,5 @@ Leetcode :
 160. Intersection of Two Linked Lists : Find the lengths of the two ll. Move the head of larger ll by l1-l2 steps. Then move both heads and compare at step.
 155. Min Stack : Use additional stack to store the min-so-far elements. When popping, check if the popped element is the min so far. If yes, pop.
 202. Happy number : Use fast pointer slow pointer approach to detect a cycle. If cycle found, return False, if 1 reached, return True.
+283. Move Zeroes : Use fast pointer, slow pointer approach. Move slow pointer if arr[slow] != 0. Move fast always, When arr[slow]==0, swap slow fast values.
+122. Best Time to Buy and Sell Stock II : Iterate on array from 1 to n. Wherever, arr[i] > arr[i-1], add it to profit.
