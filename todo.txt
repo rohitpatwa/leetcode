@@ -1,3 +1,10 @@
+----------------- Couldn't do in first go -----------------
+
+207. Course Schedule
+Topological Sort
+
+----------------------------------------------------------- 
+
 DP :
 Very Useful : https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns
 

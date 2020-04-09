@@ -25,7 +25,7 @@ Leetcode :
 136. Single Number : Start with 0. Take xor of all the numbers. ((0 xor a) xor a) = 0 | (((0 xor a) xor b) xor a) = b
 322. Coin Change : dp = ['Inf'] *(amount+1);dp[0]=0;iterate over the table and iterate over all possible coins(nested). dp[amt] = min(dp[amt], dp[amt - coin] + 1)
 278. First Bad Version : Perform binary serach; l = m+1, r=m; return l
-844. Backspace String Compare : Use S_skip and T_skip pointers to remember the skips. Within each while loop, perform the skips in S and T and then compare the character.
+844. Backspace String Compare : Iterate on reversed strings. If #, skip+=1, else skip-=1. Compare after skips. If both pointers overflow, return True, else return False.
 141. Linked List Cycle : Use slow pointer and fast pointer; if they coincide, return True, if they get to None, return False.
 344. Reverse String : Use two pointers, one at beginning, one at end
 125. Valid Palindrome : Use two pointers, one at beginning, one at end. Run 2 while loops inside a one while loop to skip all non alphanumeric charectes
@@ -75,3 +75,7 @@ Leetcode :
 202. Happy number : Use fast pointer slow pointer approach to detect a cycle. If cycle found, return False, if 1 reached, return True.
 283. Move Zeroes : Use fast pointer, slow pointer approach. Move slow pointer if arr[slow] != 0. Move fast always, When arr[slow]==0, swap slow fast values.
 122. Best Time to Buy and Sell Stock II : Iterate on array from 1 to n. Wherever, arr[i] > arr[i-1], add it to profit.
+49. Group Anagrams : Sorting each word is a linear time operation(counting sort). Sort each word and add it to a dictionary whose values are lists of words. 
+110. Balanced Binary Tree : Use height of left tree and right tree to check if they are balanced. At any point, if unbalanced, return -1 which avoids further computation and return False.
+98. Validate Binary Search Tree : Create a helper func which takes (node, lower_bound and upper_bound). Recursively call on left and right sub tree.
+1404. Number of Steps to Reduce a Number in Binary Representation to One : 
