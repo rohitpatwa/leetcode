@@ -78,4 +78,5 @@ Leetcode :
 49. Group Anagrams : Sorting each word is a linear time operation(counting sort). Sort each word and add it to a dictionary whose values are lists of words. 
 110. Balanced Binary Tree : Use height of left tree and right tree to check if they are balanced. At any point, if unbalanced, return -1 which avoids further computation and return False.
 98. Validate Binary Search Tree : Create a helper func which takes (node, lower_bound and upper_bound). Recursively call on left and right sub tree.
-1404. Number of Steps to Reduce a Number in Binary Representation to One : 
+1404. Number of Steps to Reduce a Number in Binary Representation to One : Look at 1 bit (b) at a time(right to left) and maintain a carry (c). (b=0,c=0->1,c=0), (b=0,c=1->2, c=1) and so on.  
+543. Diameter of Binary Tree : Diameter is max(diameter_left, diameter_right, left_depth+right_depth+1). Resurse on left and right subtrees. Return diam and depth at each step.
