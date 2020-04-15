@@ -12,7 +12,10 @@ class Solution(object):
         max_len = 0  # Max len of subarray
         
         for i, x in enumerate(nums):
-            s += 1 if x==1 else -1
+            if x:
+                s += 1 
+            else:
+                s -= 1
             
             if s in counter: # if we have seen that sum before
                 max_len = max(max_len, i-counter[s])
