@@ -4,6 +4,14 @@
 Topological Sort
 
 236. Lowest Common Ancestor of a Binary Tree
+560. Subarray Sum Equals K
+1008. Construct Binary Search Tree from Preorder Traversal
+33. Search in Rotated Sorted Array
+678. Valid Parenthesis String
+238. Product of Array Except Self
+201. Bitwise AND of Numbers Range
+124. Binary Tree Maximum Path Sum
+
 
 
 ----------------------------------------------------------- 
