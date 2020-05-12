@@ -11,7 +11,11 @@ Topological Sort
 238. Product of Array Except Self
 201. Bitwise AND of Numbers Range
 124. Binary Tree Maximum Path Sum
+993. Cousins in Binary Tree
+367. Valid Perfect Square
+997. Find the Town Judge
 
+	
 
 
 ----------------------------------------------------------- 

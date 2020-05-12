@@ -1,5 +1,9 @@
 Leetcode :
 
+
+
+############################################################################# LTM #############################################################################
+
 200. Number of Islands : on every instance of 1, perform DFS and set all the conected ones to 0.
 118. Pascal's Triangle : Every arr[i][j] = arr[i-1][j] + arr[i-1][j-1]. Handle corner cases
 217. Contains Duplicate : Create a set and check if element already exists.
@@ -74,7 +78,6 @@ Leetcode :
 202. Happy number : Use fast pointer slow pointer approach to detect a cycle. If cycle found, return False, if 1 reached, return True.
 283. Move Zeroes : Use fast pointer, slow pointer approach. Move slow pointer if arr[slow] != 0. Move fast always, When arr[slow]==0, swap slow fast values.
 122. Best Time to Buy and Sell Stock II : Iterate on array from 1 to n. Wherever, arr[i] > arr[i-1], add it to profit.
--------------------------------------------------------REVISION 1---------------------------------------------------------------------------------
 49. Group Anagrams : Sorting each word is a linear time operation(counting sort). Sort each word and add it to a dictionary whose values are lists of words.
 110. Balanced Binary Tree : Use height of left tree and right tree to check if they are balanced. At any point, if unbalanced, return -1 which avoids further computation and return False.
 98. Validate Binary Search Tree : Create a helper func which takes (node, lower_bound and upper_bound). Recursively call on left and right sub tree.
@@ -91,3 +94,16 @@ Leetcode :
 33. Search in Rotated Sorted Array : Find the pivot element i using BS. l=i, r=i+n-1. Do normal bs between l and r and check arr[m%n].
 146. LRU Cache : Use dict. When inserting, if already present, delete it and add it again. If cache full, delete first element of dict and add new val.
 221. Maximal Square : Check if 1st row or 1st col contains any 1. If yes max_sq=1 else 0. Iterate over (1, m) and (1, n) elements. arr[i,j]=min(arr[i,j-1], arr[i-1,j-1], arr[i, j-1]) + 1.
+148. Sort List : Mergesort in nlogn time.
+771. Jewels and Stones : Create a counter over S. Then iterate over J adding counts from dict of S.
+-------------------------------------------------------REVISION 1---------------------------------------------------------------------------------
+199. Binary Tree Right Side View : Do level order traversal. At each step, insert the last value to result array.
+
+
+
+
+############################################################################# STM #############################################################################
+
+383. Ransom Note : Create a counter on magazine str. Iterate over note str and keep subtracting from the counter. 
+476. Number Complement : Find the next biggest power of 2. Return 2**power - num.
+560. Subarray Sum Equals K : Keep computing the cumsum and also store it's no. of occurances in a dict. For each cumsum, add d[cumsum-k] to result.

@@ -1,5 +1,12 @@
 # Traverse tree a and at each node check if it is equal to tree b. OR Traverse tree a and b and store in strings with delimeters. check if b in a.
 
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
 class Solution:
     def isSameTree(self, a, b):
         if not a and not b:
@@ -14,9 +21,8 @@ class Solution:
             return True
         if not s:
             return False
-        if self.isSameTree(s, t):
-            return True
-        return self.isSubtree(s.left, t) or self.isSubtree(s.right, t)
+        
+        return self.isSameTree(s, t) or self.isSubtree(s.left, t) or self.isSubtree(s.right, t)
         
         
         
@@ -32,8 +38,12 @@ class Solution:
     def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
         str_main =[]
         self.traverseTree(s,str_main)
+        
+        
         str_sub=[]
         self.traverseTree(t,str_sub)
+        
+        
         if("".join(str_sub) in "".join(str_main)):
             return True
         return False

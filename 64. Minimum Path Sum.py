@@ -9,8 +9,10 @@ class Solution:
         
     def mps(self, grid, i, j):
         p1, p2 = float('max'), float('max')
+        
         if self.dp[i][j] is not False:
             return self.dp[i][j]
+
         if i > 0:
             p1 = self.mps(grid, i-1, j)
         if j > 0:
