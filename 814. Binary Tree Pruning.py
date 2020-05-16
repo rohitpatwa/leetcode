@@ -27,3 +27,29 @@ class Solution:
             return False
 
         return root if containsOne(root) else None
+
+
+
+# Check if the sum of subtree is 0. Recursively compute sum so that there is no duplicate work.
+
+class Solution(object):
+    def pruneTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: TreeNode
+        """
+        if self.prune(root)==0:
+            return None
+        return root
+        
+        
+    def prune(self, node):
+        if not node:
+            return 0
+        lc = self.prune(node.left)
+        rc = self.prune(node.right)
+        if lc==0:
+            node.left=None
+        if rc==0:
+            node.right=None
+        return lc+rc+node.val

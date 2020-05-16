@@ -37,7 +37,6 @@ Leetcode :
 657. Robot Return to Origin : Maintin the distance from origin on x axis and y axis.
 841. Keys and Rooms : Do BFS on input. Maintin a set of (enqued + visited) rooms. Do not enque a room if it's there in the visited set.
 977. Squares of a Sorted Array : Find the point where -ve +ve transition takes place. From that point, use two pointers i,j. if abs(i)<abs(j); res.append(i**2); i-=1
--------------------------------------------------------REVISION 2---------------------------------------------------------------------------------
 11. Container With Most Water : Two pointers, start and end. If start is smaller, start++, else end--. Calculate capacity at each step, return max.
 16. 3Sum Closest : Sort the array. Start one pointer at beginning, do two sum approach on the remaining array using two more pointers. Return minumim distance result
 515. Find Largest Value in Each Tree Row : Maintain two lists, one Q and C(for it's children). When Q is empty, take the max of children and make Q=C and C=[].
@@ -45,12 +44,13 @@ Leetcode :
 846. Hand of Straights : Create a counter of cards. Sort the keys. For each card, next W cards should have a count greater than it's count. Subtract curr count from next W cards.
 24. Swap Nodes in Pairs : Take curr.next and curr.next.next nodes, swap them and chage pointers, jump two steps from current.
 814. Binary Tree Pruning : Check if if the subtrees contain 1. Recursively call on left and right subtrees
-25. Reverse Nodes in k-Group : Keep reversing k chunks of linked list. Maintin the tail of previos chunk to point to the next reversed chunk's head.
-513. Find Bottom Left Tree Value : 2 ways to solve. Either do BFS/DFS traversal by going root, right, left. Or do recursive call and find deepest elem of left tree and right tree.
-86. Partition List : Initiate two lists for before and after, initiate them with ListNode(-1). Keep adding nodes to these lists. In the end, before.next = after_head.next; return before_head.next
 1143. Longest Common Subsequence : Create a 2D table of dim (m+1, n+1). If x[i]==y[j] => LCS(i, j)=LCS(i-1, j-1) + 1; Else LCS(i, j) = max(LCS(i-1, j), LCS(i, j-1)); return LCS[-1][-1]
 53. Maximum Subarray : Create dp table of len(arr)+1. Initialize it to -inf. dp[i+1] = max(dp[i] + arr[i], arr[i]); return max(dp)
 965. Univalued Binary Tree : Recursively check if left subtree and right subtee are univals
+-------------------------------------------------------REVISION 2---------------------------------------------------------------------------------
+513. Find Bottom Left Tree Value : 2 ways to solve. Either do BFS/DFS traversal by going root, right, left. Or do recursive call and find deepest elem of left tree and right tree.
+25. Reverse Nodes in k-Group : Keep reversing k chunks of linked list. Maintin the tail of previos chunk to point to the next reversed chunk's head.
+86. Partition List : Initiate two lists for before and after, initiate them with ListNode(-1). Keep adding nodes to these lists. In the end, before.next = after_head.next; return before_head.next
 979. Distribute Coins in Binary Tree : Take abs value of current node and add it to an on going sum and sibtract 1 from that sum at the very end	
 746. Min Cost Climbing Stairs : For each step, cost[i] += min(cost[i-1], cost[i-2]); return cost[-1]
 392. Is Subsequence : Use two pointers i,j. Increment both if same char else j+=1. If i reaches the end, return True.
@@ -96,14 +96,16 @@ Leetcode :
 221. Maximal Square : Check if 1st row or 1st col contains any 1. If yes max_sq=1 else 0. Iterate over (1, m) and (1, n) elements. arr[i,j]=min(arr[i,j-1], arr[i-1,j-1], arr[i, j-1]) + 1.
 148. Sort List : Mergesort in nlogn time.
 771. Jewels and Stones : Create a counter over S. Then iterate over J adding counts from dict of S.
--------------------------------------------------------REVISION 1---------------------------------------------------------------------------------
 199. Binary Tree Right Side View : Do level order traversal. At each step, insert the last value to result array.
+-------------------------------------------------------REVISION 1---------------------------------------------------------------------------------
+383. Ransom Note : Create a counter on magazine str. Iterate over note str and keep subtracting from the counter. 
+476. Number Complement : Find the next biggest power of 2. Return 2**power - num.
 
 
 
 
 ############################################################################# STM #############################################################################
 
-383. Ransom Note : Create a counter on magazine str. Iterate over note str and keep subtracting from the counter. 
-476. Number Complement : Find the next biggest power of 2. Return 2**power - num.
 560. Subarray Sum Equals K : Keep computing the cumsum and also store it's no. of occurances in a dict. For each cumsum, add d[cumsum-k] to result.
+402. Remove K Digits : Push numbers in a stack. Whenever a smaller number appears, pop the previous num and push the smaller provided k>0. Remove duplicate nums and remove leading 0s.
+208. Implement Trie (Prefix Tree) : Use dictionary. Insert char as a key and it's next char as it's value. Mark end as a flag at the end of each word.
