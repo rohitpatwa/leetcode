@@ -47,8 +47,8 @@ Leetcode :
 1143. Longest Common Subsequence : Create a 2D table of dim (m+1, n+1). If x[i]==y[j] => LCS(i, j)=LCS(i-1, j-1) + 1; Else LCS(i, j) = max(LCS(i-1, j), LCS(i, j-1)); return LCS[-1][-1]
 53. Maximum Subarray : Create dp table of len(arr)+1. Initialize it to -inf. dp[i+1] = max(dp[i] + arr[i], arr[i]); return max(dp)
 965. Univalued Binary Tree : Recursively check if left subtree and right subtee are univals
--------------------------------------------------------REVISION 2---------------------------------------------------------------------------------
 513. Find Bottom Left Tree Value : 2 ways to solve. Either do BFS/DFS traversal by going root, right, left. Or do recursive call and find deepest elem of left tree and right tree.
+-------------------------------------------------------REVISION 2---------------------------------------------------------------------------------
 25. Reverse Nodes in k-Group : Keep reversing k chunks of linked list. Maintin the tail of previos chunk to point to the next reversed chunk's head.
 86. Partition List : Initiate two lists for before and after, initiate them with ListNode(-1). Keep adding nodes to these lists. In the end, before.next = after_head.next; return before_head.next
 979. Distribute Coins in Binary Tree : Take abs value of current node and add it to an on going sum and sibtract 1 from that sum at the very end	
@@ -100,12 +100,13 @@ Leetcode :
 -------------------------------------------------------REVISION 1---------------------------------------------------------------------------------
 383. Ransom Note : Create a counter on magazine str. Iterate over note str and keep subtracting from the counter. 
 476. Number Complement : Find the next biggest power of 2. Return 2**power - num.
+560. Subarray Sum Equals K : Keep computing the cumsum and store it's no. of occurances in a dict. For each cumsum we get a k subarray if we've seen cumsum-k; result+= d.get[cumsum-k]
+402. Remove K Digits : Push nums in a stack. When a smaller number appears, keep poppig the prev num and then push the num provided k>0. Remove duplicate nums and remove leading 0s.
 
 
 
 
 ############################################################################# STM #############################################################################
 
-560. Subarray Sum Equals K : Keep computing the cumsum and also store it's no. of occurances in a dict. For each cumsum, add d[cumsum-k] to result.
-402. Remove K Digits : Push numbers in a stack. Whenever a smaller number appears, pop the previous num and push the smaller provided k>0. Remove duplicate nums and remove leading 0s.
 208. Implement Trie (Prefix Tree) : Use dictionary. Insert char as a key and it's next char as it's value. Mark end as a flag at the end of each word.
+986. Interval List Intersections : If x[0]<=y[1] and x[1]>=y[0], this means intersection. if x[1]<y[1], x++ else y++.
