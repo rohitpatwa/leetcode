@@ -102,11 +102,13 @@ Leetcode :
 476. Number Complement : Find the next biggest power of 2. Return 2**power - num.
 560. Subarray Sum Equals K : Keep computing the cumsum and store it's no. of occurances in a dict. For each cumsum we get a k subarray if we've seen cumsum-k; result+= d.get[cumsum-k]
 402. Remove K Digits : Push nums in a stack. When a smaller number appears, keep poppig the prev num and then push the num provided k>0. Remove duplicate nums and remove leading 0s.
+208. Implement Trie (Prefix Tree) : Use dictionary. Insert char as a key and it's next char as it's value. Mark end as a flag at the end of each word.
+986. Interval List Intersections : If x[0]<=y[1] and x[1]>=y[0], this means intersection. if x[1]<y[1], x++ else y++.
+678. Valid Parenthesis String : Iterate s once from l->r and r->l. left_bal and right_bal in s. If at any point left_bal<0 or right_bal<0; return False; else return True.
 
 
 
 
 ############################################################################# STM #############################################################################
-
-208. Implement Trie (Prefix Tree) : Use dictionary. Insert char as a key and it's next char as it's value. Mark end as a flag at the end of each word.
-986. Interval List Intersections : If x[0]<=y[1] and x[1]>=y[0], this means intersection. if x[1]<y[1], x++ else y++.
+700. Search in a Binary Search Tree : Can be solved in both recursive and iterative ways. Iterate with BST nodes and return root where the value matches. Write the base case.
+852. Peak Index in a Mountain Array : Do binary search until you find the mid point.
