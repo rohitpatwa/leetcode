@@ -105,10 +105,16 @@ Leetcode :
 208. Implement Trie (Prefix Tree) : Use dictionary. Insert char as a key and it's next char as it's value. Mark end as a flag at the end of each word.
 986. Interval List Intersections : If x[0]<=y[1] and x[1]>=y[0], this means intersection. if x[1]<y[1], x++ else y++.
 678. Valid Parenthesis String : Iterate s once from l->r and r->l. left_bal and right_bal in s. If at any point left_bal<0 or right_bal<0; return False; else return True.
-
+700. Search in a Binary Search Tree : Can be solved in both recursive and iterative ways. Iterate with BST nodes and return root where the value matches. Write the base case.
+852. Peak Index in a Mountain Array : Do binary search until you find the mid point.
+404. Sum of Left Leaves : Recursive soln. If left child is a leaf, return left.val + recv_func(right child); else return recv_func(left) + recv_func(right).
+917. Reverse Only Letters : Use two pointer approach - i at the start, j at the end. Swap the chars at i and j while i<j.
+54. Spiral Matrix : Maintain the direction while traversing. Keep track of top, right, bottom and left limits of the matrix. Iterate til l<=r and t<=b.
+59. Spiral Matrix II : Create a res array of n*n size. Iterate it in a spiral order and keep inserting a ctr++ at each step.
+929. Unique Email Addresses : Split the emails at @. Apply rules through regex and add the resultant email in a set.
 
 
 
 ############################################################################# STM #############################################################################
-700. Search in a Binary Search Tree : Can be solved in both recursive and iterative ways. Iterate with BST nodes and return root where the value matches. Write the base case.
-852. Peak Index in a Mountain Array : Do binary search until you find the mid point.
+804. Unique Morse Code Words : Create a set and add all the codes in it. Return length.
+905. Sort Array By Parity : Two pointer approach. One at the start, other at the end. Swap odd and even nums.
