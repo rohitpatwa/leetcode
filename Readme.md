@@ -48,13 +48,13 @@ Leetcode :
 53. Maximum Subarray : Create dp table of len(arr)+1. Initialize it to -inf. dp[i+1] = max(dp[i] + arr[i], arr[i]); return max(dp)
 965. Univalued Binary Tree : Recursively check if left subtree and right subtee are univals
 513. Find Bottom Left Tree Value : 2 ways to solve. Either do BFS/DFS traversal by going root, right, left. Or do recursive call and find deepest elem of left tree and right tree.
--------------------------------------------------------REVISION 2---------------------------------------------------------------------------------
 25. Reverse Nodes in k-Group : Keep reversing k chunks of linked list. Maintin the tail of previos chunk to point to the next reversed chunk's head.
 86. Partition List : Initiate two lists for before and after, initiate them with ListNode(-1). Keep adding nodes to these lists. In the end, before.next = after_head.next; return before_head.next
 979. Distribute Coins in Binary Tree : Take abs value of current node and add it to an on going sum and sibtract 1 from that sum at the very end	
 746. Min Cost Climbing Stairs : For each step, cost[i] += min(cost[i-1], cost[i-2]); return cost[-1]
 392. Is Subsequence : Use two pointers i,j. Increment both if same char else j+=1. If i reaches the end, return True.
 303. Range Sum Query - Immutable : Pre-calculate all the prefix sums. Return the difference of prefix sums nums[j] - nums[i-1]
+-------------------------------------------------------REVISION 2---------------------------------------------------------------------------------
 897. Increasing Order Search Tree : Do in-order traversal and store elements. Make a tree from the stored Elements.
 733. Flood Fill : Recursively perform DFS. Store startColor, update the pixel and compare it's neighbors with the start color.
 938. Range Sum of BST : check if root lies in the range, if True : recursively call left and right; add node.val, else : call left or right 
@@ -112,9 +112,12 @@ Leetcode :
 54. Spiral Matrix : Maintain the direction while traversing. Keep track of top, right, bottom and left limits of the matrix. Iterate til l<=r and t<=b.
 59. Spiral Matrix II : Create a res array of n*n size. Iterate it in a spiral order and keep inserting a ctr++ at each step.
 929. Unique Email Addresses : Split the emails at @. Apply rules through regex and add the resultant email in a set.
+804. Unique Morse Code Words : Create a set and add all the codes in it. Return length.
+905. Sort Array By Parity : Two pointer approach. One at the start, other at the end. Swap odd and even nums.
+728. Self Dividing Numbers : Solution is brute force. Go through each number and check if it is self dividing.
+561. Array Partition I : Sort the array and add all the even elements to the min_sum. That will be the result.
+1002. Find Common Characters : Use global_freq and local_freq to keep a count of repeating chars.
 
 
 
 ############################################################################# STM #############################################################################
-804. Unique Morse Code Words : Create a set and add all the codes in it. Return length.
-905. Sort Array By Parity : Two pointer approach. One at the start, other at the end. Swap odd and even nums.
