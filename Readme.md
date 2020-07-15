@@ -117,7 +117,28 @@ Leetcode :
 728. Self Dividing Numbers : Solution is brute force. Go through each number and check if it is self dividing.
 561. Array Partition I : Sort the array and add all the even elements to the min_sum. That will be the result.
 1002. Find Common Characters : Use global_freq and local_freq to keep a count of repeating chars.
+933. Number of Recent Calls : Use a Q to keep recent timestamps. Whenever ping is called, add t to Q and remove all the expired ones. Return len(Q) 
+985. Sum of Even Numbers After Queries : Keep a running sum. At each query, subtract the initial term if even and add the new term if even. Append sum in results.
+922. Sort Array By Parity II : Two pointer approach. Initiate i, j = 0, 1. Keep i on even terms, j on odd. Increment by 2 if correct, else swap.
+867. Transpose Matrix : Create new matrix of transpose dim. B[j][i] = A[i][j].
+121. Best Time to Buy and Sell Stock : Iterate through the array and maintain the min_so_far value. at each step profit = max(profit, arr[i]-min_so_far)
+680. Valid Palindrome II : Use 2 pointers initially. When diff chars seen at i and j, call checkPslindrome with both cases i.e. skip ith, skip jth. If either satisfies, return True.
+209. Minimum Size Subarray Sum : Two pointer problem (i, j). Maintain a running sum and a left index (i). While running sum>target, sum-=arr[i] and i++; else sum+=arr[j], j++
+74. Search a 2D Matrix : Perform a normal binary search. Do division and modulus when accessing the elements of the matrix 
+79. Word Search : Scan through each word in grid. Where 1st char matches, perform dfs on it's neighbors. Replace a visited word by -1 to avoid visiting it again. Backtrack if needed.
+1. Two Sum : Linear solution. Create a dict of all elements. Then iterate through the array, for each element check if it's compliment is in d.
+695. Max Area of Island : Visit every loc in grid. If loc==1, set it to zero and perform BFS by setting it's neighbors 0.
+1047. Remove All Adjacent Duplicates In String : Use stack. If next char c == S[-1], S.pop(); else S.append(c)
+1160. Find Words That Can Be Formed by Characters : Use dict for keeping global frequency and local frequency of chars.
+485. Max Consecutive Ones : Keep a count of global max and local max. 
+412. Fizz Buzz : Loop from 1 to n+1. if i%3==0, s += "Fizz", if i%5==0, s += "Buzz".
 
 
 
 ############################################################################# STM #############################################################################
+482. License Key Formatting : 
+904. Fruit Into Baskets : 	
+18. 4Sum : Stupid extention of 3sum problem. n^3 solution. Two pointer approach inside double for loop.
+15. 3Sum : 
+1261. Find Elements in a Contaminated Binary Tree : 
+739. Daily Temperatures
