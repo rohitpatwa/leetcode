@@ -2,7 +2,7 @@ Leetcode :
 
 
 
-############################################################################# LTM #############################################################################
+#################################### STM #########################################
 
 200. Number of Islands : on every instance of 1, perform DFS and set all the conected ones to 0.
 118. Pascal's Triangle : Every arr[i][j] = arr[i-1][j] + arr[i-1][j-1]. Handle corner cases
@@ -27,7 +27,7 @@ Leetcode :
 328. Odd Even Linked List : Take two pointers, even and odd. Keep moving them like (even.next = odd.next, odd.next = even.next). Merge two lists in the end
 463. Island Perimeter : For each 1, count the number of surrounding 0's.
 136. Single Number : Start with 0. Take xor of all the numbers. ((0 xor a) xor a) = 0 | (((0 xor a) xor b) xor a) = b
-322. Coin Change : dp = ['Inf'] *(amount+1);dp[0]=0;iterate over the table and iterate over all possible coins(nested). dp[amt] = min(dp[amt], dp[amt - coin] + 1)
+322. Coin Change : dp = ['inf'] *(amount+1);dp[0]=0;iterate over the table and iterate over all possible coins(nested). dp[amt] = min(dp[amt], dp[amt - coin] + 1)
 278. First Bad Version : Perform binary serach; l = m+1, r=m; return l
 844. Backspace String Compare : Iterate on reversed strings. If #, skip+=1, else skip-=1. Compare after skips. If both pointers overflow, return True, else return False.
 141. Linked List Cycle : Use slow pointer and fast pointer; if they coincide, return True, if they get to None, return False.
@@ -54,7 +54,7 @@ Leetcode :
 746. Min Cost Climbing Stairs : For each step, cost[i] += min(cost[i-1], cost[i-2]); return cost[-1]
 392. Is Subsequence : Use two pointers i,j. Increment both if same char else j+=1. If i reaches the end, return True.
 303. Range Sum Query - Immutable : Pre-calculate all the prefix sums. Return the difference of prefix sums nums[j] - nums[i-1]
--------------------------------------------------------REVISION 2---------------------------------------------------------------------------------
+-------------------------- REVISION 2 -----------------------------
 897. Increasing Order Search Tree : Do in-order traversal and store elements. Make a tree from the stored Elements.
 733. Flood Fill : Recursively perform DFS. Store startColor, update the pixel and compare it's neighbors with the start color.
 938. Range Sum of BST : check if root lies in the range, if True : recursively call left and right; add node.val, else : call left or right 
@@ -97,7 +97,7 @@ Leetcode :
 148. Sort List : Mergesort in nlogn time.
 771. Jewels and Stones : Create a counter over S. Then iterate over J adding counts from dict of S.
 199. Binary Tree Right Side View : Do level order traversal. At each step, insert the last value to result array.
--------------------------------------------------------REVISION 1---------------------------------------------------------------------------------
+-------------------------- REVISION 1 -----------------------------
 383. Ransom Note : Create a counter on magazine str. Iterate over note str and keep subtracting from the counter. 
 476. Number Complement : Find the next biggest power of 2. Return 2**power - num.
 560. Subarray Sum Equals K : Keep computing the cumsum and store it's no. of occurances in a dict. For each cumsum we get a k subarray if we've seen cumsum-k; result+= d.get[cumsum-k]
@@ -132,13 +132,25 @@ Leetcode :
 1160. Find Words That Can Be Formed by Characters : Use dict for keeping global frequency and local frequency of chars.
 485. Max Consecutive Ones : Keep a count of global max and local max. 
 412. Fizz Buzz : Loop from 1 to n+1. if i%3==0, s += "Fizz", if i%5==0, s += "Buzz".
-
-
-
-############################################################################# STM #############################################################################
-482. License Key Formatting : 
-904. Fruit Into Baskets : 	
+482. License Key Formatting : Remove all the -. Start from the end and keep adding each elem to new string. After every k chars, add -. Return res.strip('-')
+904. Fruit Into Baskets : 3 variables to store info of last_fr, 2nd_last_fr and last_fr_count. If x==last_fr, local_max+=1, if x==2nd_last, swap the two and last_fr_count=1.
 18. 4Sum : Stupid extention of 3sum problem. n^3 solution. Two pointer approach inside double for loop.
-15. 3Sum : 
-1261. Find Elements in a Contaminated Binary Tree : 
-739. Daily Temperatures
+15. 3Sum : Sort thr array. Move one pointer from start to end and keep performing 2 sum on remaining array. O(n^2)
+1261. Find Elements in a Contaminated Binary Tree : BFS on BT starting from root. Every child is given value as per formula. Add values to a set. Search target in set.
+739. Daily Temperatures : Push (temp, idx) in a stack. Pop element when a bigger elem is seen and update arr[idx] with (new_idx-idx).
+347. Top K Frequent Elements : Linear solution. Create an array of arr to hold all i freq elements at ith arr. Flatten and return last k elements.
+1072. Flip Columns For Maximum Number of Equal Rows : Create a dict of patterns. Add tuple(row) and tuple(row_compliment) to dict. Return max(dict.vals()).
+609. Find Duplicate File in System : Split paths and files. The split files. The split filename and content. Add content to dict and full path as value in a list. 
+198. House Robber : We create an arr dp which hold max val till that point. At each i, max_val = max(dp[i-2] + nums[i], dp[i-1])
+70. Climbing Stairs : At each step, number of ways to climb is equal to (dp[i-1] + dp[i-2]). We can take 1 step from i-1 and 2 steps from i-2.
+
+
+
+#################################### STM ######################################### 
+
+21. Merge Two Sorted Lists
+543. Diameter of Binary Tree
+78. Subsets
+46. Permutations
+22. Generate Parentheses
+152. Maximum Product Subarray
