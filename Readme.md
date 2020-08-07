@@ -2,7 +2,7 @@ Leetcode :
 
 
 
-#################################### STM #########################################
+#################################### LTM #########################################
 
 200. Number of Islands : on every instance of 1, perform DFS and set all the conected ones to 0.
 118. Pascal's Triangle : Every arr[i][j] = arr[i-1][j] + arr[i-1][j-1]. Handle corner cases
@@ -97,13 +97,14 @@ Leetcode :
 148. Sort List : Mergesort in nlogn time.
 771. Jewels and Stones : Create a counter over S. Then iterate over J adding counts from dict of S.
 199. Binary Tree Right Side View : Do level order traversal. At each step, insert the last value to result array.
+986. Interval List Intersections : If x[0]<=y[1] and x[1]>=y[0], this means intersection. if x[1]<y[1], x++ else y++.
+209. Minimum Size Subarray Sum : Two pointer problem (i, j). Maintain a running sum and a left index (i). While running sum>target, sum-=arr[i] and i++; else sum+=arr[j], j++
 -------------------------- REVISION 1 -----------------------------
 383. Ransom Note : Create a counter on magazine str. Iterate over note str and keep subtracting from the counter. 
 476. Number Complement : Find the next biggest power of 2. Return 2**power - num.
 560. Subarray Sum Equals K : Keep computing the cumsum and store it's no. of occurances in a dict. For each cumsum we get a k subarray if we've seen cumsum-k; result+= d.get[cumsum-k]
 402. Remove K Digits : Push nums in a stack. When a smaller number appears, keep poppig the prev num and then push the num provided k>0. Remove duplicate nums and remove leading 0s.
 208. Implement Trie (Prefix Tree) : Use dictionary. Insert char as a key and it's next char as it's value. Mark end as a flag at the end of each word.
-986. Interval List Intersections : If x[0]<=y[1] and x[1]>=y[0], this means intersection. if x[1]<y[1], x++ else y++.
 678. Valid Parenthesis String : Iterate s once from l->r and r->l. left_bal and right_bal in s. If at any point left_bal<0 or right_bal<0; return False; else return True.
 700. Search in a Binary Search Tree : Can be solved in both recursive and iterative ways. Iterate with BST nodes and return root where the value matches. Write the base case.
 852. Peak Index in a Mountain Array : Do binary search until you find the mid point.
@@ -123,7 +124,6 @@ Leetcode :
 867. Transpose Matrix : Create new matrix of transpose dim. B[j][i] = A[i][j].
 121. Best Time to Buy and Sell Stock : Iterate through the array and maintain the min_so_far value. at each step profit = max(profit, arr[i]-min_so_far)
 680. Valid Palindrome II : Use 2 pointers initially. When diff chars seen at i and j, call checkPslindrome with both cases i.e. skip ith, skip jth. If either satisfies, return True.
-209. Minimum Size Subarray Sum : Two pointer problem (i, j). Maintain a running sum and a left index (i). While running sum>target, sum-=arr[i] and i++; else sum+=arr[j], j++
 74. Search a 2D Matrix : Perform a normal binary search. Do division and modulus when accessing the elements of the matrix 
 79. Word Search : Scan through each word in grid. Where 1st char matches, perform dfs on it's neighbors. Replace a visited word by -1 to avoid visiting it again. Backtrack if needed.
 1. Two Sum : Linear solution. Create a dict of all elements. Then iterate through the array, for each element check if it's compliment is in d.
@@ -143,14 +143,28 @@ Leetcode :
 609. Find Duplicate File in System : Split paths and files. The split files. The split filename and content. Add content to dict and full path as value in a list. 
 198. House Robber : We create an arr dp which hold max val till that point. At each i, max_val = max(dp[i-2] + nums[i], dp[i-1])
 70. Climbing Stairs : At each step, number of ways to climb is equal to (dp[i-1] + dp[i-2]). We can take 1 step from i-1 and 2 steps from i-2.
-
+21. Merge Two Sorted Lists : Itera two linked lists with two pointers and keep adding the smaller value to the res list.
+78. Subsets : Simulate picking and not picking every element within a heler function. Pick next value, recurse, backtrack. Add every combi to res.
+46. Permutations : Pop first char and send the remaining array to a magic funciton which returns all perms. Place popped char at all positions in each perm.
+46. Permutations : Simulate swapping branches of a tree. Call helper with l pointer. for i in range(l, n), swap i, l. Recurse with l+1, backtrack 
+22. Generate Parentheses : Open parenthesen < n and closed parantheses < open. Keep recursing and backtrackting to generate all combinations.
+152. Maximum Product Subarray : At each element, keep track of min and max because in products, min can become max if multiplied by -ve no. 
+62. Unique Paths : 2 ways to solve [dp, maths]. dp[i][j] = dp[i-1][j] + dp[i][j-1].
+213. House Robber II : Same as House Robber problem. This time we find max loot from [0:n-1] and [1:n] separately and return max of these.
+300. Longest Increasing Subsequence : DP problem, O(n^2). Initiate lis=[1]*n. If A[i]>A[j] and lis[j]>=lis[i]: lis[i] = lis[j] + 1.
+5. Longest Palindromic Substring : Iterate through the array, at each step expand from middle and find longest palindrome. Cover odd and even cases of plaindromes.
+139. Word Break : Create a list named dp. dp[i] means if or not we can reach char i using wordDict. Run 2 pointers on s. If dp[j] and s[j:i] in wordDict: dp[i]=True.
+55. Jump Game : Keep calculating max reachable index from current index. If curr index passes max reachable index, return False.
+647. Palindromic Substrings : Iterate over the str and in each itr call expand(i, i) and expand(i, i+1). In expand func, expand on right and left and count palindromes.
+91. Decode Ways : dp=[]*len(n+1). dp[i] means no. of ways to decode string of len i. Get single and double from s. single>0: dp[i]+=dp[i-1]; 10<=double<=26: dp[i]+=dp[i-2].
+520. Detect Capital : Check if word is all upper or all lower. elif check if word is one capital and all lower. Else return False.
+417. Pacific Atlantic Water Flow : Create 2 sets P and A for nodes covered by both seas. Perform dfs from all rows and cols of P and A. Return intersecrion of P and A.
+1496. Path Crossing : Assign +1 -1 values to "NSEW". Use cartesian coordinates and store values in a set. If value repeated, return True.
+378. Kth Smallest Element in a Sorted Matrix : Create a max heap of size k. At every element smaller than top of heap, replace it with top. At the end, return top.
+56. Merge Intervals : Sort intervals. Add first int(erval) to res. Iterate on remaining and check if curr[0] <= res[-1][1]
+162. Find Peak Element : Call helper with (nums, l, r). if nums[m] < nums[m+1]: l = m+1; else: r = m-1.
+342. Power of Four : Binary representation should be of the form 1000... and of odd length.
 
 
 #################################### STM ######################################### 
 
-21. Merge Two Sorted Lists
-543. Diameter of Binary Tree
-78. Subsets
-46. Permutations
-22. Generate Parentheses
-152. Maximum Product Subarray
