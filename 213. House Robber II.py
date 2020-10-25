@@ -23,5 +23,4 @@ class Solution:
             
             dp1[i] = max(dp1[i-1], dp1[i-2] + nums[i+1])
         
-        print(dp0, dp1)
         return max(dp0[-1], dp1[-1])

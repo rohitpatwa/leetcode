@@ -13,7 +13,7 @@ class Solution:
                 k -= 1
             S.append(n)
         
-        while k>0:  # all remaining nums are equal
+        while k>0:  # all remaining nums are non decreasing
             S.pop()
             k -= 1
                 
