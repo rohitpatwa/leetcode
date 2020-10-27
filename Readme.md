@@ -192,19 +192,20 @@ Leetcode :
 702. Search in a Sorted Array of Unknown Size : Start with r=1. Keep doubling r until reader(r) > target. Perform Binary Search between r/2 and r.
 116. Populating Next Right Pointers in Each Node : This solution is in O(n) space. Do level order traversal and create links within the level.
 117. Populating Next Right Pointers in Each Node II : This is O(1) space. Create parent, child and child_head nodes. Move parent node horizontally and create links in child nodes.
+547. Friend Circles : Keep a set of seen people. Now iterate on people from 1 to N, only those who are unseen. Do BFS on all it's unseen friends and mark all of them as seen.
+40. Combination Sum II : Similar to finding subsets problem. Here find subsets whose sum is equal to target. Sort candidates and skip repeat numbers.
+235. Lowest Common Ancestor of a Binary Search Tree : Use BST property. If both p and q are less than root, recurse on root left, similarly for root right. Else return root.
+236. Lowest Common Ancestor of a Binary Tree : LCA returns a node if it finds at least 1 of p and q in given tree. If we find 1 node in left tree and 1 in right sub tree, return root.
+654. Maximum Binary Tree : Find the max value and its index from the list. Create a node with max val. node.left = func(nums[:idx]), node.right = func(nums[i+1:]).
+346. Moving Average from Data Stream : Keep a queue of size k. Keep pushing numbers until capacity and return average.
 
 
 #################################### STM ######################################### 
 
-40. Combination Sum II : Similar to finding subsets problem. Here find subsets whose sum is equal to target. Sort candidates and skip repeat numbers.
-235. Lowest Common Ancestor of a Binary Search Tree
-236. Lowest Common Ancestor of a Binary Tree
 937. Reorder Data in Log Files
-654. Maximum Binary Tree
 259. 3Sum Smaller
 713. Subarray Product Less Than K
 686. Repeated String Match
-346. Moving Average from Data Stream
 734. Sentence Similarity
 299. Bulls and Cows
 246. Strobogrammatic Number
@@ -251,11 +252,11 @@ Leetcode :
 188. Best Time to Buy and Sell Stock IV
 1007. Minimum Domino Rotations For Equal Row
 349. Intersection of Two Arrays
-547. Friend Circles
 735. Asteroid Collision
 39. Combination Sum
 456. 132 Pattern : Create aux array storing the min_left[i]=min(nums[:i]). Iterate on nums from end and store elements in Stack. In each iteration while S[-1] <= min_left[j]: S.pop().
-
+216. Combination Sum III
+1510. Stone Game IV
 
 
 

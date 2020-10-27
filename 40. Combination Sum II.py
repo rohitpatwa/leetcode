@@ -16,6 +16,7 @@ class Solution:
             return 
         
         for i in range(idx, len(self.candidates)):
+            # To avoid repeated numbers in the answer
             if i==idx or self.candidates[i]!=self.candidates[i-1]:
                 curr.append(self.candidates[i])
                 self.helper(i+1, curr, target-self.candidates[i])
