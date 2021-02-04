@@ -45,7 +45,7 @@ Leetcode :
 24. Swap Nodes in Pairs : Take curr.next and curr.next.next nodes, swap them and chage pointers, jump two steps from current.
 814. Binary Tree Pruning : Check if if the subtrees contain 1. Recursively call on left and right subtrees
 1143. Longest Common Subsequence : Create a 2D table of dim (m+1, n+1). If x[i]==y[j] => LCS(i, j)=LCS(i-1, j-1) + 1; Else LCS(i, j) = max(LCS(i-1, j), LCS(i, j-1)); return LCS[-1][-1]
-53. Maximum Subarray : Create dp table of len(arr)+1. Initialize it to -inf. dp[i+1] = max(dp[i] + arr[i], arr[i]); return max(dp)
+53. Maximum Subarray : Create dp table of len(arr). Initialize it to 0. dp[i] = max(dp[i-1] + arr[i], arr[i]); return max(dp)
 965. Univalued Binary Tree : Recursively check if left subtree and right subtee are univals
 513. Find Bottom Left Tree Value : 2 ways to solve. Either do BFS/DFS traversal by going root, right, left. Or do recursive call and find deepest elem of left tree and right tree.
 25. Reverse Nodes in k-Group : Keep reversing k chunks of linked list. Maintin the tail of previos chunk to point to the next reversed chunk's head.
@@ -55,11 +55,23 @@ Leetcode :
 392. Is Subsequence : Use two pointers i,j. Increment both if same char else j+=1. If i reaches the end, return True.
 303. Range Sum Query - Immutable : Pre-calculate all the prefix sums. Return the difference of prefix sums nums[j] - nums[i-1]
 929. Unique Email Addresses : Split the emails at @. Apply rules through regex and add the resultant email in a set.
-48. Rotate Image : Repear n/2 iterations. Replace 4 points in one go.
 2. Add Two Numbers : Iterate over 2 LL. Maintain carry digit. Keep adding new nodes to res. In the end, check if carry is set.
+48. Rotate Image : Repear n/2 iterations. Replace 4 points in one go.
 19. Remove Nth Node From End of List : Place two pointers n nodes apart in the linked list. As ptr1 reaches the end, ptr2 will be on the nth node from end.
 933. Number of Recent Calls : Use a Q to keep recent timestamps. Whenever ping is called, remove all the expired ones and add t to Q. Return len(Q) 
+49. Group Anagrams : Sorting each word is a linear time operation(counting sort). Sort each word and add it to a dictionary whose values are lists of words.
+445. Add Two Numbers II : Find len of two linked lists. Pad shorter one with 0s. Call them recursively. When end is reached, keep adding the elements and maintain the carry bit.
+21. Merge Two Sorted Lists : Itera two linked lists with two pointers and keep adding the smaller value to the res list.
+160. Intersection of Two Linked Lists : Find the lengths of the two ll. Move the head of larger ll by l1-l2 steps. Then move both heads and compare at step.
+33. Search in Rotated Sorted Array : Find the pivot element i using BS. l=i, r=i+n-1. Do normal bs between l and r and check arr[m%n].
+59. Spiral Matrix II : Create a res array of n*n size. Iterate it in a spiral order and keep inserting a ctr++ at each step.
+74. Search a 2D Matrix : Perform a normal binary search. Do division and modulus when accessing the elements of the matrix. 
+121. Best Time to Buy and Sell Stock : Iterate through the array and maintain the min_so_far value. at each step profit = max(profit, arr[i]-min_so_far).
+26. Remove Duplicates from Sorted Array : 2 Pointer approach. i=0; j in range(1, n). Where n[i]!=n[j], increment i and swap n[i] = n[j]. Return i+1.
+203. Remove Linked List Elements : Initiate temp = ListNode(-1). temp.next = head; iterate over the list and keep removing matching elements as you go. 
+
 -------------------------- REVISION 2 -----------------------------
+
 897. Increasing Order Search Tree : Do in-order traversal and store elements. Make a tree from the stored Elements.
 733. Flood Fill : Recursively perform DFS. Store startColor, update the pixel and compare it's neighbors with the start color.
 938. Range Sum of BST : check if root lies in the range, if True : recursively call left and right; add node.val, else : call left or right 
@@ -73,14 +85,10 @@ Leetcode :
 796. Rotate String : s1 and s2 can be represented as xy and yx. Both x and y are contained in xyxy. | return bool(B in A+A and len(A)==len(B))
 83. Remove Duplicates from Sorted List : recurse on the linked list while ptr.next. store curr val. if next.val==curr, remove next; else val = next.val
 237. Delete Node in a Linked List : Update the node value to its next element's value. node.next = node.next.next 
-203. Remove Linked List Elements : Initiate temp = ListNode(-1). temp.next = head; iterate over the list and keep removing matching elements as you go. 
-445. Add Two Numbers II : Find len of two linked lists. Pad shorter one with 0s. Call them recursively. When end is reached, keep adding the elements and maintain the carry bit.
-160. Intersection of Two Linked Lists : Find the lengths of the two ll. Move the head of larger ll by l1-l2 steps. Then move both heads and compare at step.
 155. Min Stack : Use additional stack to store the min-so-far elements. When popping, check if the popped element is the min so far. If yes, pop.
 202. Happy number : Use fast pointer slow pointer approach to detect a cycle. If cycle found, return False, if 1 reached, return True.
 283. Move Zeroes : Use fast pointer, slow pointer approach. Move slow pointer if arr[slow] != 0. Move fast always, When arr[slow]==0, swap slow fast values.
 122. Best Time to Buy and Sell Stock II : Iterate on array from 1 to n. Wherever, arr[i] > arr[i-1], add it to profit.
-49. Group Anagrams : Sorting each word is a linear time operation(counting sort). Sort each word and add it to a dictionary whose values are lists of words.
 110. Balanced Binary Tree : Use height of left tree and right tree to check if they are balanced. At any point, if unbalanced, return -1 which avoids further computation and return False.
 98. Validate Binary Search Tree : Create a helper func which takes (node, lower_bound and upper_bound). Recursively call on left and right sub tree.
 1404. Number of Steps to Reduce a Number in Binary Representation to One : Look at 1 bit (b) at a time(right to left) and maintain a carry (c). (b=0,c=0->1,c=0), (b=0,c=1->2, c=1) and so on.  
@@ -93,7 +101,6 @@ Leetcode :
 678. Valid Parenthesis String : Calculate leftBal and rightBal for the string. leftbal means +1 if i in "(*" else -1. rightBal = +1 if i in "*)" else -1. If any < 0; return False
 64. Minimum Path Sum : DP problem. Keep storing the  minPathSum([i-1][j], [i][j-1]). We can go top down using recursion or bottom up using iterative.
 572. Subtree of Another Tree : Traverse tree a and at each node check if it is equal to tree b. OR Traverse tree a and b and store in strings with delimeters. check if b in a.
-33. Search in Rotated Sorted Array : Find the pivot element i using BS. l=i, r=i+n-1. Do normal bs between l and r and check arr[m%n].
 146. LRU Cache : Use dict. When inserting, if already present, delete it and add it again. If cache full, delete first element of dict and add new val.
 221. Maximal Square : Check if 1st row or 1st col contains any 1. If yes max_sq=1 else 0. Iterate over (1, m) and (1, n) elements. arr[i,j]=min(arr[i,j-1], arr[i-1,j-1], arr[i, j-1]) + 1.
 148. Sort List : Mergesort in nlogn time.
@@ -114,7 +121,6 @@ Leetcode :
 905. Sort Array By Parity : Two pointer approach. One at the start, other at the end. Swap odd and even nums.
 917. Reverse Only Letters : Use two pointer approach - i at the start, j at the end. Swap the chars at i and j while i<j.
 54. Spiral Matrix : Maintain the direction while traversing. Keep track of top, right, bottom and left limits of the matrix. Iterate til l<=r and t<=b.
-59. Spiral Matrix II : Create a res array of n*n size. Iterate it in a spiral order and keep inserting a ctr++ at each step.
 804. Unique Morse Code Words : Create a set and add all the codes in it. Return length.
 91. Decode Ways : dp=[]*len(n+1). dp[i] means no. of ways to decode string of len i. Get single and double from s. single>0: dp[i]+=dp[i-1]; 10<=double<=26: dp[i]+=dp[i-2].
 728. Self Dividing Numbers : Solution is brute force. Go through each number and check if it is self dividing.
@@ -123,9 +129,7 @@ Leetcode :
 985. Sum of Even Numbers After Queries : Keep a running sum. At each query, subtract the initial term if even and add the new term if even. Append sum in results.
 922. Sort Array By Parity II : Two pointer approach. Initiate i, j = 0, 1. Keep i on even terms, j on odd. Increment by 2 if correct, else swap.
 867. Transpose Matrix : Create new matrix of transpose dim. B[j][i] = A[i][j].
-121. Best Time to Buy and Sell Stock : Iterate through the array and maintain the min_so_far value. at each step profit = max(profit, arr[i]-min_so_far)
 680. Valid Palindrome II : Use 2 pointers initially. When diff chars seen at i and j, call checkPslindrome with both cases i.e. skip ith, skip jth. If either satisfies, return True.
-74. Search a 2D Matrix : Perform a normal binary search. Do division and modulus when accessing the elements of the matrix 
 1. Two Sum : Linear solution. Create a dict of all elements. Then iterate through the array, for each element check if it's compliment is in d.
 695. Max Area of Island : Visit every loc in grid. If loc==1, set it to zero and perform BFS by setting it's neighbors 0.
 1047. Remove All Adjacent Duplicates In String : Use stack. If next char c == S[-1], S.pop(); else S.append(c)
@@ -136,13 +140,29 @@ Leetcode :
 904. Fruit Into Baskets : 3 variables to store info of last_fr, 2nd_last_fr and last_fr_count. If x==last_fr, local_max+=1, if x==2nd_last, swap the two and last_fr_count=1.
 55. Jump Game : Keep calculating max reachable index from current index. If curr index passes max reachable index, return False.
 15. 3Sum : Sort thr array. Move one pointer from start to end and keep performing 2 sum on remaining array. O(n^2)
-21. Merge Two Sorted Lists : Itera two linked lists with two pointers and keep adding the smaller value to the res list.
 207. Course Schedule : Create list of inDegree(iD) of edges and DAG. Add nodes with iD==0 to Stack(S). Pop S, decrease inDegree of dependents by 1. If iD==0, push to S.
 210. Course Schedule II : Same as Course Schedule problem. Create a res list to store resut. When popping from Stack, add to res.
 18. 4Sum : Stupid extention of 3sum problem. n^3 solution. Two pointer approach inside double for loop.
 152. Maximum Product Subarray : At each element, keep track of min and max because in products, min can become max if multiplied by -ve no. 
 212. Word Search II : Add the list of words in a trie. At end of every word, store 'end'=True and 'word'=<actual word>. Then iterate the board and keep checking in trie by DFS. 
+46. Permutations : Pop first char and send the remaining array to a magic funciton which returns all perms. Place popped char at all positions in each perm.
+46. Permutations : Simulate swapping branches of a tree. Call helper with l pointer. for i in range(l, n), swap i, l. Recurse with l+1, backtrack 
+5. Longest Palindromic Substring : Iterate through the array, at each step expand from middle and find longest palindrome. Cover odd and even cases of plaindromes.
+20. Valid Parentheses : Use a stack. Push opening braces in stack. For closing braces, pop the top of stack if matching else return False. 
+116. Populating Next Right Pointers in Each Node : This solution is in O(n) space. Do level order traversal and create links within the level.
+117. Populating Next Right Pointers in Each Node II : This is O(1) space. Create parent, child and child_head nodes. Move parent node horizontally and create links in child nodes.
+235. Lowest Common Ancestor of a Binary Search Tree : Use BST property. If both p and q are less than root, recurse on root left, similarly for root right. Else return root.
+236. Lowest Common Ancestor of a Binary Tree : LCA returns a node if it finds at least 1 of p and q in given tree. If we find 1 node in left tree and 1 in right sub tree, return root.
+138. Copy List with Random Pointer : Create a dictionary that keeps mapping of old nodes to new nodes. Then run a loop which places all next and random pointers.
+1592. Rearrange Spaces Between Words : Count the number of words and spaces separately. Distribute the spaces between the words.
+76. Minimum Window Substring : Get counter of t. Then iterate over s using 2 pointers (i, j). In each step forward of j, move i as many steps as possible.
+66. Plus One : Iterate on the digits from the end to beginning. Update the digit and c bit on each iteration.
+159. Longest Substring with At Most Two Distinct Characters : Store the value and counts of last char and second last char. Then there will be 3 cases for every new char.
+809. Expressive Words : Find run-length-encoding of S and all query words. Then simply compare the run length encodings with a number of checks.
+
+
 -------------------------- REVISION 1 -----------------------------
+
 1261. Find Elements in a Contaminated Binary Tree : BFS on BT starting from root. Every child is given value as per formula. Add values to a set. Search target in set.
 739. Daily Temperatures : Push (temp, idx) in a stack. Pop element when a bigger elem is seen and update arr[idx] with (new_idx-idx).
 347. Top K Frequent Elements : Linear solution. Create an array of arr to hold all i freq elements at ith sub-arr. Flatten and return last k elements.
@@ -151,13 +171,10 @@ Leetcode :
 198. House Robber : We create an arr dp which hold max val till that point. At each i, max_val = max(dp[i-2] + nums[i], dp[i-1])
 70. Climbing Stairs : At each step, number of ways to climb is equal to (dp[i-1] + dp[i-2]). We can take 1 step from i-1 and 2 steps from i-2.
 78. Subsets : Simulate picking and not picking every element within a heler function. Pick next value, recurse, backtrack. Add every combi to res.
-46. Permutations : Pop first char and send the remaining array to a magic funciton which returns all perms. Place popped char at all positions in each perm.
-46. Permutations : Simulate swapping branches of a tree. Call helper with l pointer. for i in range(l, n), swap i, l. Recurse with l+1, backtrack 
 22. Generate Parentheses : Open parenthesen < n and closed parantheses < open. Keep recursing and backtrackting to generate all combinations.
 62. Unique Paths : 2 ways to solve [dp, maths]. dp[i][j] = dp[i-1][j] + dp[i][j-1].
 213. House Robber II : Same as House Robber problem. This time we find max loot from [0:n-1] and [1:n] separately and return max of these.
 300. Longest Increasing Subsequence : DP problem, O(n^2). Initiate lis=[1]*n. If A[i]>A[j] and lis[j]>=lis[i]: lis[i] = lis[j] + 1.
-5. Longest Palindromic Substring : Iterate through the array, at each step expand from middle and find longest palindrome. Cover odd and even cases of plaindromes.
 139. Word Break : Create a list named dp. dp[i] means if or not we can reach char i using wordDict. Run 2 pointers on s. If dp[j] and s[j:i] in wordDict: dp[i]=True.
 647. Palindromic Substrings : Iterate over the str and in each itr call expand(i, i) and expand(i, i+1). In expand func, expand on right and left and count palindromes.
 520. Detect Capital : Check if word is all upper or all lower. elif check if word is one capital and all lower. Else return False.
@@ -190,53 +207,45 @@ Leetcode :
 17. Letter Combinations of a Phone Number : Perform DFS. Create a number to char mapping. Call a helper function on each digit and iterate through it's chars recursively.
 1593. Split a String Into the Max Number of Unique Substrings : Iterate s and create cand. Add cand to seen set. Recursively call helper. max = max(max, helper() + 1) and backtrack.
 702. Search in a Sorted Array of Unknown Size : Start with r=1. Keep doubling r until reader(r) > target. Perform Binary Search between r/2 and r.
-116. Populating Next Right Pointers in Each Node : This solution is in O(n) space. Do level order traversal and create links within the level.
-117. Populating Next Right Pointers in Each Node II : This is O(1) space. Create parent, child and child_head nodes. Move parent node horizontally and create links in child nodes.
 547. Friend Circles : Keep a set of seen people. Now iterate on people from 1 to N, only those who are unseen. Do BFS on all it's unseen friends and mark all of them as seen.
 40. Combination Sum II : Similar to finding subsets problem. Here find subsets whose sum is equal to target. Sort candidates and skip repeat numbers.
-235. Lowest Common Ancestor of a Binary Search Tree : Use BST property. If both p and q are less than root, recurse on root left, similarly for root right. Else return root.
-236. Lowest Common Ancestor of a Binary Tree : LCA returns a node if it finds at least 1 of p and q in given tree. If we find 1 node in left tree and 1 in right sub tree, return root.
 654. Maximum Binary Tree : Find the max value and its index from the list. Create a node with max val. node.left = func(nums[:idx]), node.right = func(nums[i+1:]).
 346. Moving Average from Data Stream : Keep a queue of size k. Keep pushing numbers until capacity and return average.
-
+937. Reorder Data in Log Files : Iterate over logs and separate letter logs and digit logs. Sort letter logs and append them together in the result.
+259. 3Sum Smaller : Sort nums. Run and fix i from 1 to n-2. Run j=i+1, k=n-1. if nums[i]+nums[j]+nums[k]<target, count+= k-j, j+1; else: k-= 1.
+713. Subarray Product Less Than K : 2 pointer approach. Run right ptr by 1. Then till the subarr product is less than k, increment left by 1. Add right-left+1 to count.
+686. Repeated String Match : min_res = ceil(lenB/lenA). Check only 2 values for k i.e. min_res and min_res+1. if B not in A*k, return -1.
+734. Sentence Similarity : Create a set of all pairs of similar words. Then iterate of zip(S1, S2) and all pairs should be in the set or w1==w2.
+299. Bulls and Cows : One pass solution. d=[0]*10 for 10 digits. If s==g:b+=1;else: every secret key digit increases d[s]. If we find d[s]<0 that means it has been guessed so c+=1.
+1217. Minimum Cost to Move Chips to The Same Position : Count the number of chips on odd positions and even positions. Return min(odd, even).
+246. Strobogrammatic Number : Create two dict of identical and rotation numbers which satisfy the condition. Compare every num[i] with num[~i] as per id and rot dicts.
+359. Logger Rate Limiter : Create a Q and a set S. Append (m, t ) in Q and add m in S. Whenever a new message comes, remove all the t-10 messages from Q and S and then add new one.
+189. Rotate Array : Create 2 parts of the array of size n-k and k. Reverse these two parts individually and then reverse the whole array. 
+8. String to Integer (atoi) : Remove special chars except the sign char. Convert to int and return the number with min/max with limit number.
+12. Integer to Roman : Extract values for each place. Create dictionaries for each case at each place. roman = thou[th] + hund[h] + tens[t] + ones[o].
+165. Compare Version Numbers : Split on . and compare on each part. Iterate on max(len(v1), len(v2)). If index out of bounds, use 0 as filler.
+273. Integer to English Words : Create a sub function to print 3 digit numners. Use that function to print Billions, Millions, Thousands and Hundreds.
+387. First Unique Character in a String : Linear time constant space. Create a counter of str. Then iterate over chars of str, when ctr[str[i]]==1, return i. 
+42. Trapping Rain Water : 2 sols. One with O(n) space, 2 aux array storing left_max and right_max till point i. Other using 2 pointers (l, r) and constant space.
+243. Shortest Word Distance : Maintain i1, i2 to store latest occurance of w1 and w2. When you find w1, do res = min(res, i - i2). Same for w2.
+88. Merge Sorted Array : Start your way from back and move forward.
+153. Find Minimum in Rotated Sorted Array : If arr[m] > arr[r] => l=m+1 else => r = m. return[l]
+163. Missing Ranges : Check the diff between consecutive elements of nums. If it's > 1, send it to format function. Add edge cases separately.
+75. Sort Colors : Use 2 pointers l=0, r=n-1. Iterate over the array, if i==0, swap with left and (l++, i++). If i==2, swap with rigth and (r++). Else i==1 (i++). 
+103. Binary Tree Zigzag Level Order Traversal : Normal levelorder traversal. Flag to track direction. When appending temp to res, check flag to append temp or trmp[::-1].
+348. Design Tic-Tac-Toe : Create 2 arrays rows and cols of size n. For each move +1 or or -1 the respective row and cols. For diagonals just store 2 variables d1 and d2.
+957. Prison Cells After N Days : Run days one by one until the pattern repeats. Once the pattern repeats, find a cycle and do N=N%cycle. We the process remaining N one by one.
+833. Find And Replace in String : Store all the valid replacements in a list and sort them desc. The apply each change on S. 
+31. Next Permutation : Go from right to left in inc order. Stop at smaller element, call it pivot. Reverse the arr on right of pivot and swap pivot with next greater element.
+1512. Number of Good Pairs : One pass solution. At each num, if it's seen before n times, increment res by n. Then increment d[num] by 1.
+61. Rotate List : Find len of ll. k = k%l. Then mode l-k-1 steps and break the ll. Add the remaining part of the LL in the front.
 
 #################################### STM ######################################### 
 
-937. Reorder Data in Log Files
-259. 3Sum Smaller
-713. Subarray Product Less Than K
-686. Repeated String Match
-734. Sentence Similarity
-299. Bulls and Cows
-246. Strobogrammatic Number
-359. Logger Rate Limiter
-26. Remove Duplicates from Sorted Array
-189. Rotate Array
-8. String to Integer (atoi)
-12. Integer to Roman
-165. Compare Version Numbers
-273. Integer to English Words
-387. First Unique Character in a String
-20. Valid Parentheses
-42. Trapping Rain Water
-138. Copy List with Random Pointer
-103. Binary Tree Zigzag Level Order Traversal
-348. Design Tic-Tac-Toe
-957. Prison Cells After N Days
-1592. Rearrange Spaces Between Words
-66. Plus One
-76. Minimum Window Substring
-159. Longest Substring with At Most Two Distinct Characters
-163. Missing Ranges
-809. Expressive Words
-833. Find And Replace in String
-31. Next Permutationf`
-1512. Number of Good Pairs
 1598. Crawler Log Folder
 1599. Maximum Profit of Operating a Centennial Wheel
 1600. Throne Inheritance
 1504. Count Submatrices With All Ones
-61. Rotate List
 329. Longest Increasing Path in a Matrix
 170. Two Sum III - Data structure design
 394. Decode String
@@ -257,6 +266,59 @@ Leetcode :
 456. 132 Pattern : Create aux array storing the min_left[i]=min(nums[:i]). Iterate on nums from end and store elements in Stack. In each iteration while S[-1] <= min_left[j]: S.pop().
 216. Combination Sum III
 1510. Stone Game IV
+142. Linked List Cycle II
+380. Insert Delete GetRandom O(1)
+252. Meeting Rooms
+1290. Convert Binary Number in a Linked List to Integer
+205. Isomorphic Strings
+1010. Pairs of Songs With Total Durations Divisible by 60
+1646. Get Maximum in Generated Array
+1647. Minimum Deletions to Make Character Frequencies Unique
+682. Baseball Game
+690. Employee Importance
+1086. High Five
+1099. Two Sum Less Than K
+563. Binary Tree Tilt
+832. Flipping an Image
+593. Valid Square
+47. Permutations II
+953. Verifying an Alien Dictionary
+339. Nested List Weight Sum
+270. Closest Binary Search Tree Value
+415. Add Strings
+422. Valid Word Square
+716. Max Stack
+266. Palindrome Permutation
+1180. Count Substrings with Only One Distinct Letter
+276. Paint Fence
+1228. Missing Number In Arithmetic Progression
+1026. Maximum Difference Between Node and Ancestor
+1272. Remove Interval
+151. Reverse Words in a String
+186. Reverse Words in a String II
+227. Basic Calculator II
+239. Sliding Window Maximum
+102. Binary Tree Level Order Traversal
+240. Search a 2D Matrix II
+277. Find the Celebrity
+1688. Count of Matches in Tournament
+1689. Partitioning Into Minimum Number Of Deci-Binary Numbers
+218. The Skyline Problem
+1089. Duplicate Zeros
+27. Remove Element
+1346. Check If N and Its Double Exist
+941. Valid Mountain Array
+1299. Replace Elements with Greatest Element on Right Side
+1051. Height Checker
+487. Max Consecutive Ones II
+414. Third Maximum Number
+448. Find All Numbers Disappeared in an Array
+707. Design Linked List
+1742. Maximum Number of Balls in a Box
+1743. Restore the Array From Adjacent Pairs
+430. Flatten a Multilevel Doubly Linked List
+708. Insert into a Sorted Circular Linked List
+145. Binary Tree Postorder Traversal
 
 
 

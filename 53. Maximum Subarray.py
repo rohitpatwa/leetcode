@@ -1,15 +1,15 @@
-# Create dp table of len(arr)+1. Initialize it to -inf. dp[i+1] = max(dp[i] + arr[i], arr[i]); return max(dp)
+# Create dp table of len(arr). Initialize it to 0. dp[i] = max(dp[i-1] + arr[i], arr[i]); return max(dp)
 
 
-class Solution(object):
-    def maxSubArray(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        dp = [-float('inf')]*(len(nums)+1)
-        for i in range(len(nums)):
-            dp[i+1] = max(dp[i] + nums[i], nums[i])
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        
+        
+        dp = [nums[0]]*len(nums)
+        
+        for i in range(1, len(nums)):
+            dp[i] = max(nums[i] + dp[i-1], nums[i])
+            
         return max(dp)
 
 
