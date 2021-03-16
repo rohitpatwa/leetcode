@@ -9,6 +9,7 @@
 118. Pascal's Triangle : Every arr[i][j] = arr[i-1][j] + arr[i-1][j-1]. Handle corner cases
 217. Contains Duplicate : Create a set and check if element already exists.
 206. Reverse Linked List : Use prev and next as extra variables. while h: [n=h.n; h.n=p; p=h; h=n]
+206. Reverse Linked List : Recursive approach. Compute new head once and return that in every call. Head.next.next = head.
 167. Two Sum II - Input array is sorted : Use two pointer approach. Initiate one at beginning and one at the end.
 234. Palindrome Linked List : Use fast & slow pointers. Take fast pointer to end, slow pointer will be in the middle. Reverse ll ahead of slow pointer and initiate fast pointer to head. Compare.
 590. N-ary Tree Postorder Traversal : Implement a stack. Keep inserting children in stack and root.val in output arr. return arr[::-1]
@@ -70,12 +71,18 @@
 121. Best Time to Buy and Sell Stock : Iterate through the array and maintain the min_so_far value. at each step profit = max(profit, arr[i]-min_so_far).
 26. Remove Duplicates from Sorted Array : 2 Pointer approach. i=0; j in range(1, n). Where n[i]!=n[j], increment i and swap n[i] = n[j]. Return i+1.
 203. Remove Linked List Elements : Initiate temp = ListNode(-1). temp.next = head; iterate over the list and keep removing matching elements as you go. 
+116. Populating Next Right Pointers in Each Node : This solution is in O(n) space. Do level order traversal and create links within the level.
+117. Populating Next Right Pointers in Each Node II : This is O(1) space. Create parent, child and child_head nodes. Move parent node horizontally and create links in child nodes.
+236. Lowest Common Ancestor of a Binary Tree : LCA returns a node if it finds at least 1 of p and q in given tree. If we find 1 node in left tree and 1 in right sub tree, return root.
+700. Search in a Binary Search Tree : Can be solved in both recursive and iterative ways. Iterate with BST nodes and return root where the value matches. Write the base case.
+897. Increasing Order Search Tree : Create a dummy TreeNode and keep adding right childs to it while performing inorder traversal.
+
 ---
 
 REVISION 2
 
---- 
-897. Increasing Order Search Tree : Do in-order traversal and store elements. Make a tree from the stored Elements.
+---
+
 733. Flood Fill : Recursively perform DFS. Store startColor, update the pixel and compare it's neighbors with the start color.
 938. Range Sum of BST : check if root lies in the range, if True : recursively call left and right; add node.val, else : call left or right 
 958. Check Completeness of a Binary Tree : Do BFS. When you reach a null node, check if the Q is empty. If yes: return True else return False
@@ -99,7 +106,7 @@ REVISION 2
 525. Contiguous Array : Calculate sum at each index. Two points between which sum repeats itself contains equal 0s and 1s
 238. Product of Array Except Self : In 2 for loops, we can compute prod of all numbers to the left and right of a given index. Multiply elements of these arrays and we get the result.
 111. Minimum Depth of Binary Tree : min(minDepth(left), minDepth(right)) + 1
-119. Pascal's Triangle II : Create a temp row. Keep updating the values of row in another list. Repeat this till k.
+119. Pascal's Triangle II : Append 1 in each iteration. row[j] = row[j] + row[j-1] in reverse order.
 168. Excel Sheet Column Title : num = n%26 if n%26!=0 else 26; char = ord(num); n = (n-num)//26.
 678. Valid Parenthesis String : Calculate leftBal and rightBal for the string. leftbal means +1 if i in "(*" else -1. rightBal = +1 if i in "*)" else -1. If any < 0; return False
 64. Minimum Path Sum : DP problem. Keep storing the  minPathSum([i-1][j], [i][j-1]). We can go top down using recursion or bottom up using iterative.
@@ -117,7 +124,6 @@ REVISION 2
 402. Remove K Digits : Push nums in a stack. When a smaller number appears, keep poppig the prev num and then push the num provided k>0. Remove duplicate nums and remove leading 0s.
 208. Implement Trie (Prefix Tree) : Use dictionary. Insert char as a key and it's next char as it's value. Mark end as a flag at the end of each word.
 678. Valid Parenthesis String : Iterate s once from l->r and r->l. left_bal and right_bal in s. If at any point left_bal<0 or right_bal<0; return False; else return True.
-700. Search in a Binary Search Tree : Can be solved in both recursive and iterative ways. Iterate with BST nodes and return root where the value matches. Write the base case.
 852. Peak Index in a Mountain Array : Do binary search until you find the mid point.
 404. Sum of Left Leaves : Recursive soln. If left child is a leaf, return left.val + recv_func(right child); else return recv_func(left) + recv_func(right).
 79. Word Search : Scan through each word in grid. Where 1st char matches, perform dfs on it's neighbors. Replace a visited word by -1 to avoid visiting it again. Backtrack if needed.
@@ -152,22 +158,21 @@ REVISION 2
 46. Permutations : Simulate swapping branches of a tree. Call helper with l pointer. for i in range(l, n), swap i, l. Recurse with l+1, backtrack 
 5. Longest Palindromic Substring : Iterate through the array, at each step expand from middle and find longest palindrome. Cover odd and even cases of plaindromes.
 20. Valid Parentheses : Use a stack. Push opening braces in stack. For closing braces, pop the top of stack if matching else return False. 
-116. Populating Next Right Pointers in Each Node : This solution is in O(n) space. Do level order traversal and create links within the level.
-117. Populating Next Right Pointers in Each Node II : This is O(1) space. Create parent, child and child_head nodes. Move parent node horizontally and create links in child nodes.
 235. Lowest Common Ancestor of a Binary Search Tree : Use BST property. If both p and q are less than root, recurse on root left, similarly for root right. Else return root.
-236. Lowest Common Ancestor of a Binary Tree : LCA returns a node if it finds at least 1 of p and q in given tree. If we find 1 node in left tree and 1 in right sub tree, return root.
 138. Copy List with Random Pointer : Create a dictionary that keeps mapping of old nodes to new nodes. Then run a loop which places all next and random pointers.
 1592. Rearrange Spaces Between Words : Count the number of words and spaces separately. Distribute the spaces between the words.
 76. Minimum Window Substring : Get counter of t. Then iterate over s using 2 pointers (i, j). In each step forward of j, move i as many steps as possible.
 66. Plus One : Iterate on the digits from the end to beginning. Update the digit and c bit on each iteration.
 159. Longest Substring with At Most Two Distinct Characters : Store the value and counts of last char and second last char. Then there will be 3 cases for every new char.
 809. Expressive Words : Find run-length-encoding of S and all query words. Then simply compare the run length encodings with a number of checks.
+1261. Find Elements in a Contaminated Binary Tree : DFS or BFS on BT starting from root. Every child gets value accordingly. Add values to a set. Search target in set.
+
 ---
 
 REVISION 1
 
 ---
-1261. Find Elements in a Contaminated Binary Tree : BFS on BT starting from root. Every child is given value as per formula. Add values to a set. Search target in set.
+
 739. Daily Temperatures : Push (temp, idx) in a stack. Pop element when a bigger elem is seen and update arr[idx] with (new_idx-idx).
 347. Top K Frequent Elements : Linear solution. Create an array of arr to hold all i freq elements at ith sub-arr. Flatten and return last k elements.
 1072. Flip Columns For Maximum Number of Equal Rows : Create a dict of patterns. Add tuple(row) and tuple(row_compliment) to dict. Return max(dict.vals()).
@@ -214,7 +219,7 @@ REVISION 1
 547. Friend Circles : Keep a set of seen people. Now iterate on people from 1 to N, only those who are unseen. Do BFS on all it's unseen friends and mark all of them as seen.
 40. Combination Sum II : Similar to finding subsets problem. Here find subsets whose sum is equal to target. Sort candidates and skip repeat numbers.
 654. Maximum Binary Tree : Find the max value and its index from the list. Create a node with max val. node.left = func(nums[:idx]), node.right = func(nums[i+1:]).
-346. Moving Average from Data Stream : Keep a queue of size k. Keep pushing numbers until capacity and return average.
+346. Moving Average from Data Stream : Keep a queue of size k and keep track of window sum. Keep pushing numbers until capacity and return average.
 937. Reorder Data in Log Files : Iterate over logs and separate letter logs and digit logs. Sort letter logs and append them together in the result.
 259. 3Sum Smaller : Sort nums. Run and fix i from 1 to n-2. Run j=i+1, k=n-1. if nums[i]+nums[j]+nums[k]<target, count+= k-j, j+1; else: k-= 1.
 713. Subarray Product Less Than K : 2 pointer approach. Run right ptr by 1. Then till the subarr product is less than k, increment left by 1. Add right-left+1 to count.
@@ -243,17 +248,20 @@ REVISION 1
 31. Next Permutation : Go from right to left in inc order. Stop at smaller element, call it pivot. Reverse the arr on right of pivot and swap pivot with next greater element.
 1512. Number of Good Pairs : One pass solution. At each num, if it's seen before n times, increment res by n. Then increment d[num] by 1.
 61. Rotate List : Find len of ll. k = k%l. Then mode l-k-1 steps and break the ll. Add the remaining part of the LL in the front.
+394. Decode String : Iterate through the string till you find the outermost closing bracket. Send the internal substring for a recursive call. Multiply with number outside.
+1598. Crawler Log Folder : Maintain a count variable. Every time we go insise a folder, cnt++, every time we go back from a folder cnt--.
+1599. Maximum Profit of Operating a Centennial Wheel : Maintain a dp array to hold the current profits. Keep add new customers to leftovers and keep count of it. 
+1600. Throne Inheritance : Construct a tree with all functions mentioned. Do a pre-order traversal of the tree and only add alive people to the order.
 
 ---
+
 ## STM
 
-1598. Crawler Log Folder
-1599. Maximum Profit of Operating a Centennial Wheel
-1600. Throne Inheritance
+---
+
 1504. Count Submatrices With All Ones
 329. Longest Increasing Path in a Matrix
 170. Two Sum III - Data structure design
-394. Decode String
 1614. Maximum Nesting Depth of the Parentheses
 1615. Maximal Network Rank
 1616. Split Two Strings to Make Palindrome
@@ -325,6 +333,25 @@ REVISION 1
 708. Insert into a Sorted Circular Linked List
 145. Binary Tree Postorder Traversal
 250. Count Univalue Subtrees
+106. Construct Binary Tree from Inorder and Postorder Traversal
+105. Construct Binary Tree from Preorder and Inorder Traversal
+50. Pow(x, n)
+96. Unique Binary Search Trees
+95. Unique Binary Search Trees II
+622. Design Circular Queue
+150. Evaluate Reverse Polish Notation
+232. Implement Queue using Stacks
+225. Implement Stack using Queues
+542. 01 Matrix
+286. Walls and Gates
+752. Open the Lock
+279. Perfect Squares
+494. Target Sum
+912. Sort an Array
+51. N-Queens
+52. N-Queens II
+489. Robot Room Cleaner
+
 
 
 

@@ -23,3 +23,22 @@ class Solution:
         self.helper(root.left)
         self.lis.append(root.val)
         self.helper(root.right)
+
+
+
+# Approach 2
+
+class Solution:
+    def increasingBST(self, root: TreeNode) -> TreeNode:
+        self.dummy = TreeNode(-1)
+        self.curr = self.dummy
+        self.inOrder(root)
+        return self.dummy.right
+        
+    def inOrder(self, node):
+        if not node:
+            return
+        self.inOrder(node.left)
+        self.curr.right = TreeNode(node.val)
+        self.curr = self.curr.right
+        self.inOrder(node.right)

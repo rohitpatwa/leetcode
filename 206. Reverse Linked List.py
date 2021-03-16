@@ -21,3 +21,15 @@ class Solution(object):
             prev = head
             head = next
         return prev
+
+
+# Recursive approach. Compute new head once and return that in every call. Head.next.next = head.
+class Solution:
+    def reverseList(self, head):  # Recursive
+
+        if not head or not head.next:
+            return head
+        new_head = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+        return new_head 
