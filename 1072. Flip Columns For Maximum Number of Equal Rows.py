@@ -5,10 +5,8 @@ class Solution:
         pattern = {}
         
         for row in matrix:
+            if row[0] == 1:
+                row = [1-x for x in row]
             pattern[tuple(row)] = pattern.get(tuple(row), 0) + 1
-            
-            flip = [1-x for x in row]
-            
-            pattern[tuple(flip)] = pattern.get(tuple(flip), 0) + 1
-            
+
         return max(pattern.values())
